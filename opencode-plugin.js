@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 
 const pluginRoot = dirname(fileURLToPath(import.meta.url));
 
-export const profiles = Object.freeze({
+const profiles = Object.freeze({
   base: ["base"],
   react: ["base", "react"],
   nextjs: ["base", "react", "nextjs"],
