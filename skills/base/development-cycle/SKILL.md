@@ -70,7 +70,7 @@ The cycle may complete only when:
 
 - All approved plan tasks are complete.
 - Required verification passes.
-- Review has no critical or important findings.
+- Review has no critical or important findings, unless the user explicitly accepted the risk.
 - Code quality gates from planning, execution, and review are satisfied.
 - No unresolved scope questions remain.
 - Residual risks and unverified areas are documented.
@@ -88,7 +88,7 @@ Stop and ask with the OpenCode choice prompt UI when:
 
 ## Completion Handoff
 
-After exit criteria are met, use a future `completion` skill when available. Until then, produce a concise completion summary with:
+After exit criteria are met, use `completion` for the final response. If the `completion` skill is unavailable, produce a concise completion summary with:
 
 - Plan tasks completed.
 - Verification run and results.

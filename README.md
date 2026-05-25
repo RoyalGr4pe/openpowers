@@ -24,7 +24,7 @@ turborepo    -> skills/base + skills/turborepo
 nextjs-turbo -> skills/base + skills/react + skills/nextjs + skills/turborepo
 ```
 
-The `base` profile includes `planning`, `development-cycle`, `execution`, and `review`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution` and `review` until verification and review gates are clean.
+The `base` profile includes `planning`, `development-cycle`, `execution`, `review`, and `completion`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution` and `review` until verification and review gates are clean, then `completion` produces the final verified summary.
 
 Shared skills belong in the earliest applicable group. For example, a skill useful to both React and Next.js projects should live under `skills/react`, not be duplicated in `skills/nextjs`.
 
@@ -46,6 +46,21 @@ Add OpenPowers to your OpenCode config:
 ```
 
 Restart OpenCode after changing plugin configuration.
+
+## Refresh Cached Skills
+
+If OpenCode is still showing old skills after an OpenPowers update, remove the local cached plugin package and restart OpenCode:
+
+```bash
+rm -rf "$HOME/.cache/opencode/packages/openpowers@git+https:/github.com/RoyalGr4pe/openpowers.git"
+opencode
+```
+
+To confirm the skills were refreshed, run:
+
+```bash
+opencode debug skill
+```
 
 ## Local Development
 
