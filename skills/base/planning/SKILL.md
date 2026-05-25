@@ -28,7 +28,9 @@ Do not use the spec-and-plan workflow for small, clear, mechanical changes. Stil
 3. Ask one clarifying question at a time.
 4. Provide 2-3 concrete choices.
 5. Put the recommended choice first and label it `(Recommended)`.
-6. Always include `Type your own answer` as the final option.
+6. Use OpenCode's choice prompt UI whenever it is available.
+7. Allow custom user input through the choice prompt UI.
+8. Fall back to Markdown numbered choices only when the choice prompt tool is unavailable.
 
 Question format:
 
@@ -41,7 +43,20 @@ Do you want:
 4. Type your own answer
 ```
 
-If a question tool is available, use it with custom answers enabled. If not, write the options directly in chat.
+With the OpenCode choice prompt UI, enable custom answers instead of adding a manual `Type your own answer` option. In Markdown fallback mode, include `Type your own answer` as the final option.
+
+## Approval UI
+
+Use the same OpenCode choice prompt UI for spec and plan approval gates whenever it is available.
+
+Approval prompts should offer:
+
+1. `Approve as written (Recommended)`
+2. `Request changes`
+
+Enable custom user input so the user can type requested changes without manually typing `approve`.
+
+If the choice prompt tool is unavailable, use a short Markdown approval menu with the same options plus `Type requested changes` as the final option.
 
 ## Size Gate
 
@@ -64,10 +79,10 @@ For tasks with 3+ meaningful steps:
 
 1. Ask clarifying questions until the important unknowns are resolved.
 2. Write a spec to `docs/openpowers/specs/YYYY-MM-DD-<topic>.md`.
-3. Summarize the spec briefly in chat and ask the user to approve it.
+3. Summarize the spec briefly in chat and ask for approval using the Approval UI.
 4. Wait for approval before writing a plan.
 5. Write a plan to `docs/openpowers/plans/YYYY-MM-DD-<topic>.md`.
-6. Summarize the plan briefly in chat and ask the user to approve it.
+6. Summarize the plan briefly in chat and ask for approval using the Approval UI.
 7. Wait for approval before implementation.
 
 The spec should cover goal, scope, requirements, decisions, open questions, and success criteria.
