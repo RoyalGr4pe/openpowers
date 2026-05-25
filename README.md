@@ -18,17 +18,45 @@ Profile composition is additive:
 
 ```text
 base         -> skills/base
-react        -> skills/base + skills/react
-nextjs       -> skills/base + skills/react + skills/nextjs
+nextjs       -> skills/base + skills/nextjs
 turborepo    -> skills/base + skills/turborepo
-nextjs-turbo -> skills/base + skills/react + skills/nextjs + skills/turborepo
+nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 ```
 
 The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
 
 The `nextjs` profile adds `nextjs-app-router` for App Router file layout, server/client boundaries, service request placement, styles, and route-file rules. It also adds `nextjs-security` for input validation, rate limiting, SQL/data-access safety, secrets, cookies, uploads, and external URL handling.
 
-Shared skills belong in the earliest applicable group. For example, a skill useful to both React and Next.js projects should live under `skills/react`, not be duplicated in `skills/nextjs`.
+Shared skills belong in the earliest applicable group. Use `skills/base` for general workflow skills, `skills/nextjs` for Next.js-specific skills, and `skills/turborepo` for workspace/task-graph skills.
+
+## Using Next.js Skills
+
+Start OpenCode with the Next.js profile:
+
+```bash
+OPENPOWERS_PROFILE=nextjs opencode
+```
+
+For a Next.js monorepo that also needs Turborepo guidance, use:
+
+```bash
+OPENPOWERS_PROFILE=nextjs-turbo opencode
+```
+
+Current Next.js skills:
+
+- `nextjs-app-router`: App Router layout, `src/app` route-file rules, server/client boundaries, `src/components`, `src/styles`, `src/services`, and `src/security` placement.
+- `nextjs-security`: server-side input validation, `src/security/input-validation.ts`, rate limiting, SQL/data-access safety, auth checks, secrets, cookies, uploads, and external URL safety.
+
+To add another Next.js skill:
+
+1. Create `skills/nextjs/<skill-name>/SKILL.md`.
+2. Add YAML frontmatter with `name: <skill-name>` and a `description` that starts with `Use when`.
+3. Write the skill instructions in that file.
+4. Update the Current Next.js skills list above.
+5. Run `node --check opencode-plugin.js` and refresh cached skills.
+
+No plugin code change is needed when adding a new `SKILL.md` under `skills/nextjs`; the `nextjs` and `nextjs-turbo` profiles scan that directory recursively.
 
 ## How Discovery Works
 

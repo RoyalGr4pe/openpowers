@@ -10,10 +10,9 @@ Profiles compose skill directories instead of duplicating skills:
 
 ```text
 base         -> skills/base
-react        -> skills/base + skills/react
-nextjs       -> skills/base + skills/react + skills/nextjs
+nextjs       -> skills/base + skills/nextjs
 turborepo    -> skills/base + skills/turborepo
-nextjs-turbo -> skills/base + skills/react + skills/nextjs + skills/turborepo
+nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 ```
 
 The order matters. General skills load first, then more specific skill groups.
@@ -33,7 +32,6 @@ To add a profile:
 Put each skill in the broadest correct group:
 
 - Use `skills/base` for skills that apply to most projects.
-- Use `skills/react` for skills shared by React-based frameworks.
 - Use `skills/nextjs` for skills that require Next.js-specific behavior.
 - Use `skills/turborepo` for workspace and task-graph skills.
 

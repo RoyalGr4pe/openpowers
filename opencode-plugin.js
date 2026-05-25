@@ -5,10 +5,9 @@ const pluginRoot = dirname(fileURLToPath(import.meta.url));
 
 const profiles = Object.freeze({
   base: ["base"],
-  react: ["base", "react"],
-  nextjs: ["base", "react", "nextjs"],
+  nextjs: ["base", "nextjs"],
   turborepo: ["base", "turborepo"],
-  "nextjs-turbo": ["base", "react", "nextjs", "turborepo"],
+  "nextjs-turbo": ["base", "nextjs", "turborepo"],
 });
 
 function selectedProfile() {

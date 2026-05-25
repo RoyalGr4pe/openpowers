@@ -31,14 +31,13 @@ Use an absolute path while developing locally:
 Set `OPENPOWERS_PROFILE` before starting OpenCode:
 
 ```bash
-OPENPOWERS_PROFILE=react opencode
+OPENPOWERS_PROFILE=nextjs opencode
 ```
 
 Available profiles:
 
 ```text
 base
-react
 nextjs
 turborepo
 nextjs-turbo
@@ -58,5 +57,5 @@ OPENPOWERS_PROFILE=nextjs node --input-type=module -e "const { default: plugin }
 Expected output for the second command:
 
 ```text
-base,react,nextjs
+base,nextjs
 ```
