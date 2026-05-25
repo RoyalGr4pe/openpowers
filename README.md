@@ -23,7 +23,7 @@ turborepo    -> skills/base + skills/turborepo
 nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 ```
 
-The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
+The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `browser-review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `browser-review` for approval-gated browser screenshots of changed UI. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
 
 The `nextjs` profile adds `nextjs-app-router` for App Router file layout, server/client boundaries, service request placement, styles, and route-file rules. It also adds `nextjs-security` for input validation, rate limiting, SQL/data-access safety, secrets, cookies, uploads, and external URL handling.
 
