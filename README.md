@@ -25,7 +25,7 @@ nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 
 The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `browser-review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `browser-review` for approval-gated browser screenshots of changed UI. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
 
-The `nextjs` profile adds the Next.js-specific skills listed below. The `turborepo` profile adds `turborepo-workspace` for workspace boundaries, task scripts, caching, and environment inputs.
+The `nextjs` profile adds the Next.js-specific skills listed below. The `turborepo` profile adds `turborepo-workspace` for workspace boundaries, task scripts, caching, and environment inputs, plus `turborepo-package-layout` for app/package layout and shared-code boundaries.
 
 Shared skills belong in the earliest applicable group. Use `skills/base` for general workflow skills, `skills/nextjs` for Next.js-specific skills, and `skills/turborepo` for workspace/task-graph skills.
 
@@ -81,6 +81,19 @@ To add another Next.js skill:
 5. Run `node --check opencode-plugin.js` and refresh cached skills.
 
 No plugin code change is needed when adding a new `SKILL.md` under `skills/nextjs`; the `nextjs` and `nextjs-turbo` profiles scan that directory recursively.
+
+## Using Turborepo Skills
+
+Start OpenCode with the Turborepo profile:
+
+```bash
+OPENPOWERS_PROFILE=turborepo opencode
+```
+
+Current Turborepo skills:
+
+- `turborepo-workspace`: workspace boundaries, package scripts, cache behavior, task inputs, and environment variables.
+- `turborepo-package-layout`: `apps/` and `packages/` layout, package ownership, shared-code boundaries, exports, scripts, and readable monorepo structure.
 
 ## How Discovery Works
 
