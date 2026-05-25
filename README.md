@@ -37,6 +37,25 @@ Start OpenCode with the Next.js profile:
 OPENPOWERS_PROFILE=nextjs opencode
 ```
 
+Or export the profile once for the current shell:
+
+```bash
+export OPENPOWERS_PROFILE=nextjs
+opencode
+```
+
+Confirm the Next.js skills are loaded with the same profile variable:
+
+```bash
+OPENPOWERS_PROFILE=nextjs opencode debug skill
+```
+
+If you exported the profile, this is enough:
+
+```bash
+opencode debug skill
+```
+
 For a Next.js monorepo that also needs Turborepo guidance, use:
 
 ```bash
@@ -90,6 +109,12 @@ To confirm the skills were refreshed, run:
 
 ```bash
 opencode debug skill
+```
+
+For profile-specific skills, include the profile variable too:
+
+```bash
+OPENPOWERS_PROFILE=nextjs opencode debug skill
 ```
 
 ## Local Development
