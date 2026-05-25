@@ -1,0 +1,34 @@
+{
+  "name": "openpowers",
+  "version": "0.1.0",
+  "description": "Composable OpenCode skill profiles for reusable agent workflows.",
+  "type": "module",
+  "main": "./opencode-plugin.js",
+  "exports": "./opencode-plugin.js",
+  "files": [
+    "opencode-plugin.js",
+    "skills",
+    "installs",
+    "docs/installation.md",
+    "docs/profiles.md",
+    "docs/writing-skills.md",
+    "README.md",
+    ".opencode/INSTALL.md"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "skills",
+    "agent-skills"
+  ],
+  "author": "RoyalGr4pe",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoyalGr4pe/openpowers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RoyalGr4pe/openpowers/issues"
+  },
+  "homepage": "https://github.com/RoyalGr4pe/openpowers#readme"
+}
