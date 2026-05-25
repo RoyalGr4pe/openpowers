@@ -66,6 +66,7 @@ Current Next.js skills:
 
 - `nextjs-app-router`: App Router layout, `src/app` route-file rules, server/client boundaries, `src/components`, `src/styles`, `src/services`, and `src/security` placement.
 - `nextjs-security`: server-side input validation, `src/security/input-validation.ts`, rate limiting, SQL/data-access safety, auth checks, secrets, cookies, uploads, and external URL safety.
+- `nextjs-ui-variants`: approval-gated page creation or redesign with 2-3 meaningfully different UI directions, user selection, finalization, and optional browser-review screenshots.
 
 To add another Next.js skill:
 
