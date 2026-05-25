@@ -7,7 +7,7 @@ description: Use when finalizing work after development-cycle exit criteria are 
 
 ## Overview
 
-Completion is the final evidence gate. Do not claim work is complete unless verification, review, risks, restart notes, and git status are known.
+Completion is the final evidence gate. Do not claim work is complete unless verification, review, risks, restart notes, and git action status are known.
 
 Use this skill after `development-cycle` exit criteria are met.
 

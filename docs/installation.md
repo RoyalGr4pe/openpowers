@@ -9,7 +9,7 @@ Add the plugin to `opencode.json`:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["github:RoyalGr4pe/openpowers"]
+  "plugin": ["openpowers@git+https://github.com/RoyalGr4pe/openpowers.git"]
 }
 ```
 

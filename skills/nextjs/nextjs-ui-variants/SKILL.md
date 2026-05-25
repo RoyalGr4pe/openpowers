@@ -33,7 +33,7 @@ Before building, identify:
 - Existing design system or style constraints.
 - Whether variants should be screenshot-reviewed with `browser-review`.
 
-Ask one concise question if any required input is missing.
+Collect all missing required inputs before building. Ask one structured question at a time and do not infer missing route, content, goal, style, or browser-review decisions.
 
 ## Variant Rules
 

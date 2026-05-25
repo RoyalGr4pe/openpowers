@@ -25,7 +25,7 @@ nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 
 The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `browser-review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `browser-review` for approval-gated browser screenshots of changed UI. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
 
-The `nextjs` profile adds `nextjs-app-router` for App Router file layout, server/client boundaries, service request placement, styles, and route-file rules. It also adds `nextjs-security` for input validation, rate limiting, SQL/data-access safety, secrets, cookies, uploads, and external URL handling.
+The `nextjs` profile adds the Next.js-specific skills listed below. The `turborepo` profile adds `turborepo-workspace` for workspace boundaries, task scripts, caching, and environment inputs.
 
 Shared skills belong in the earliest applicable group. Use `skills/base` for general workflow skills, `skills/nextjs` for Next.js-specific skills, and `skills/turborepo` for workspace/task-graph skills.
 
@@ -82,7 +82,7 @@ No plugin code change is needed when adding a new `SKILL.md` under `skills/nextj
 
 ## How Discovery Works
 
-OpenCode discovers skills by scanning registered skill directories for `SKILL.md` files. OpenPowers registers profile-specific directories through the plugin config hook by appending paths to `cfg.skills.paths`.
+OpenCode discovers skills by scanning registered skill directories for `SKILL.md` files. OpenPowers registers profile-specific directories through the plugin config hook by appending paths to `config.skills.paths`.
 
 The plugin preserves existing OpenCode configuration and only adds the directories required by the selected profile.
 
@@ -127,7 +127,7 @@ Clone the repository and reference the plugin file from an OpenCode config:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["https://github.com/RoyalGr4pe/openpowers/opencode-plugin.js"]
+  "plugin": ["/absolute/path/to/openpowers/opencode-plugin.js"]
 }
 ```
 

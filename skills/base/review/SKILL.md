@@ -70,7 +70,7 @@ If there are no findings, state `No findings.` before any summary.
 
 ## Decision Gate
 
-After review, use OpenCode's choice prompt UI when available:
+After review, use OpenCode's choice prompt UI only when findings or residual risks require a user decision:
 
 1. Fix review findings (Recommended)
 2. Accept residual risks and continue
@@ -79,6 +79,8 @@ After review, use OpenCode's choice prompt UI when available:
 Allow custom user input through the choice prompt UI. If the tool is unavailable, use Markdown numbered choices plus `Type your own answer` as the final option.
 
 Critical and important findings must be fixed before completion unless the user explicitly accepts the risk.
+
+If there are no findings and no residual risks requiring user choice, do not prompt; continue to `completion`.
 
 ## Git Rules
 
