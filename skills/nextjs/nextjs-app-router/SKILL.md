@@ -19,6 +19,7 @@ src/
 |-- components/
 |-- hooks/
 |-- lib/
+|-- security/
 |-- services/
 |-- styles/
 `-- utils/
@@ -55,13 +56,15 @@ Do not place reusable components, hooks, utilities, service clients, or CSS modu
 
 Component files must not make direct requests to internal APIs or external URLs. Route files, server actions, and components should call service functions instead.
 
+`src/security` is for security-sensitive shared code. Shared input validation belongs in `src/security/input-validation.ts`, not `src/utils`.
+
 `src/hooks` is for React hooks only. Hooks must not be created until the user confirms why a hook is needed.
 
 `src/lib` is for app-level library setup, adapters, and shared configuration. Ask the user what should go in `src/lib` before adding files there.
 
 `src/utils` is for small pure helpers with no React, Next.js, request, or service dependency. Ask the user what should go in `src/utils` before adding files there.
 
-Before adding files to `src/lib`, `src/services`, `src/utils`, or `src/hooks`, ask what the intended responsibility is and confirm the directory choice.
+Before adding files to `src/lib`, `src/services`, `src/security`, `src/utils`, or `src/hooks`, ask what the intended responsibility is and confirm the directory choice.
 
 ## Server And Client Boundaries
 
@@ -84,7 +87,7 @@ Before adding files to `src/lib`, `src/services`, `src/utils`, or `src/hooks`, a
 
 Ask with the OpenCode choice prompt UI when:
 
-- Creating or choosing between `src/lib`, `src/services`, `src/utils`, or `src/hooks`.
+- Creating or choosing between `src/lib`, `src/services`, `src/security`, `src/utils`, or `src/hooks`.
 - A page appears to need `"use client"` instead of a child client component.
 - Existing project layout conflicts with these rules.
 - A component seems to need direct request logic.
