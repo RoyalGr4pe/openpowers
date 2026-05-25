@@ -9,7 +9,7 @@ description: Use when carrying out an approved plan that needs iterative impleme
 
 Do not stop after the first implementation pass. Execute, verify, debug, review, fix, and repeat until completion criteria are met.
 
-This skill coordinates `execution` and `review`; it does not replace them.
+This skill coordinates `execution`, `debugging`, and `review`; it does not replace them.
 
 The loop is `execution -> verification -> debugging/fix -> review -> verification -> repeat`.
 
@@ -42,7 +42,7 @@ For each approved plan task:
 
 1. Use `execution` to implement one task at a time.
 2. Run relevant verification after each meaningful change.
-3. If verification fails, debug the root cause before changing code.
+3. If verification fails, use `debugging` to identify the root cause before changing code.
 4. Fix the smallest confirmed cause.
 5. Re-run verification after each fix.
 6. Use `review` after verification passes.

@@ -24,7 +24,7 @@ turborepo    -> skills/base + skills/turborepo
 nextjs-turbo -> skills/base + skills/react + skills/nextjs + skills/turborepo
 ```
 
-The `base` profile includes `planning`, `development-cycle`, `execution`, `review`, and `completion`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution` and `review` until verification and review gates are clean, then `completion` produces the final verified summary.
+The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, and `completion`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary.
 
 Shared skills belong in the earliest applicable group. For example, a skill useful to both React and Next.js projects should live under `skills/react`, not be duplicated in `skills/nextjs`.
 
