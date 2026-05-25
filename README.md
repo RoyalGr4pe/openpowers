@@ -66,6 +66,7 @@ Current Next.js skills:
 
 - `nextjs-app-router`: App Router layout, `src/app` route-file rules, server/client boundaries, `src/components`, `src/styles`, `src/services`, and `src/security` placement.
 - `nextjs-api-routes`: App Router `route.ts` structure, HTTP methods, validation, rate limits, auth checks, safe responses, service delegation, and mutation revalidation.
+- `nextjs-auth`: authentication, authorization, ownership checks, protected routes, sessions, cookies, roles, permissions, and private data access.
 - `nextjs-data-cache`: data fetching, public vs private cache strategy, revalidation, dynamic rendering, mutations, and user-specific data safety.
 - `nextjs-performance`: images, fonts, client bundle size, server/client boundaries, Suspense/loading states, dynamic imports, and rendering mode performance.
 - `nextjs-security`: server-side input validation, `src/security/input-validation.ts`, rate limiting, SQL/data-access safety, auth checks, secrets, cookies, uploads, and external URL safety.
