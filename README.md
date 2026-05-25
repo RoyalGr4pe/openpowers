@@ -25,7 +25,7 @@ nextjs-turbo -> skills/base + skills/nextjs + skills/turborepo
 
 The `base` profile includes `planning`, `development-cycle`, `execution`, `debugging`, `review`, `browser-review`, `completion`, and `maintenance`. The high-level lifecycle is `planning -> development-cycle -> completion`; `development-cycle` internally coordinates `execution`, `debugging`, and `review` until verification and review gates are clean, then `completion` produces the final verified summary. Use `browser-review` for approval-gated browser screenshots of changed UI. Use `maintenance` for small repo upkeep that does not need the full lifecycle.
 
-The `nextjs` profile adds the Next.js-specific skills listed below. The `turborepo` profile adds `turborepo-workspace` for workspace boundaries, task scripts, caching, and environment inputs, plus `turborepo-package-layout` for app/package layout and shared-code boundaries.
+The `nextjs` profile adds the Next.js-specific skills listed below. The `turborepo` profile adds the Turborepo-specific skills listed below.
 
 Shared skills belong in the earliest applicable group. Use `skills/base` for general workflow skills, `skills/nextjs` for Next.js-specific skills, and `skills/turborepo` for workspace/task-graph skills.
 
@@ -92,6 +92,7 @@ OPENPOWERS_PROFILE=turborepo opencode
 
 Current Turborepo skills:
 
+- `turborepo-dependencies`: root vs package dependency placement, dependency type, peer dependencies, version consistency, and client/server dependency safety.
 - `turborepo-workspace`: workspace boundaries, package scripts, cache behavior, task inputs, and environment variables.
 - `turborepo-package-layout`: `apps/` and `packages/` layout, package ownership, shared-code boundaries, exports, scripts, and readable monorepo structure.
 
