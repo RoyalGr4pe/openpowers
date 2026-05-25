@@ -28,7 +28,7 @@ function skillDirectoriesFor(profile) {
   return profiles[profile].map((group) => join(pluginRoot, "skills", group));
 }
 
-export default async function openpowersPlugin() {
+export const OpenPowersPlugin = async () => {
   return {
     config(config) {
       config.skills ??= {};
@@ -41,4 +41,6 @@ export default async function openpowersPlugin() {
       }
     },
   };
-}
+};
+
+export default OpenPowersPlugin;
