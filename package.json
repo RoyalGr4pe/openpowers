@@ -1,6 +1,6 @@
 {
   "name": "openpowers",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Composable OpenCode skill profiles for reusable agent workflows.",
   "type": "module",
   "main": "./opencode-plugin.js",

@@ -35,6 +35,21 @@ Prompts must:
 
 Fall back to Markdown numbered choices only when the choice prompt tool is unavailable. In Markdown fallback mode, include `Type your own answer` as the final option.
 
+## Code Quality Rules
+
+While implementing:
+
+1. Search before creating new files, functions, components, hooks, types, or utilities.
+2. Prefer editing existing code over creating parallel implementations.
+3. Do not create duplicate functions with overlapping responsibility.
+4. Do not place multiple unrelated components in one file.
+5. Do not introduce a new pattern if the project already has an equivalent pattern.
+6. Do not add abstractions until there are at least two concrete use cases.
+7. Keep business logic out of UI components where possible.
+8. Remove dead code created by the change.
+9. Keep files focused on one responsibility.
+10. Follow existing naming, folder, import, and testing conventions.
+
 ## Execution Loop
 
 1. Read the approved plan before editing files.
@@ -47,7 +62,8 @@ Fall back to Markdown numbered choices only when the choice prompt tool is unava
 8. Run that task's verification before marking it complete.
 9. Repeat until all plan tasks are complete.
 10. Run final verification.
-11. Summarize changed files, verification results, blockers, and restart requirements.
+11. Invoke the `review` skill before claiming completion.
+12. Summarize changed files, verification results, blockers, review results, and restart requirements.
 
 ## Scope Control
 

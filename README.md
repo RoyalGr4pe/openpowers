@@ -2,7 +2,7 @@
 
 OpenPowers is a small OpenCode plugin framework for organizing reusable skills into composable install profiles.
 
-It is intentionally minimal. The repository provides the plugin architecture, profile layout, contributor documentation, and small base planning/execution skills for future skill growth.
+It is intentionally minimal. The repository provides the plugin architecture, profile layout, contributor documentation, and small base planning/execution/review skills for future skill growth.
 
 ## Profiles
 
@@ -24,7 +24,7 @@ turborepo    -> skills/base + skills/turborepo
 nextjs-turbo -> skills/base + skills/react + skills/nextjs + skills/turborepo
 ```
 
-The `base` profile includes `planning` and `execution`. `planning` prepares approved specs and plans with structured choice prompts; `execution` follows approved plans task-by-task with verification gates.
+The `base` profile includes `planning`, `execution`, and `review`. `planning` prepares approved specs and plans with structured choice prompts; `execution` follows approved plans task-by-task with verification gates; `review` checks quality before completion.
 
 Shared skills belong in the earliest applicable group. For example, a skill useful to both React and Next.js projects should live under `skills/react`, not be duplicated in `skills/nextjs`.
 

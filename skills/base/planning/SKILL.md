@@ -73,6 +73,31 @@ Use the spec-and-plan workflow when the work likely includes:
 
 Skip spec and plan files for small tasks with fewer than 3 meaningful steps. For small unclear tasks, ask the needed clarifying question, wait for the answer, then proceed normally.
 
+## Code Quality Gate
+
+Before writing the plan, identify how the implementation will avoid:
+
+- Duplicate functions.
+- Duplicate components.
+- Multiple unrelated components in one file.
+- Reimplementing existing utilities.
+- Creating parallel systems.
+- Unnecessary abstractions.
+- Large files or god components.
+- Inconsistent naming or folder placement.
+
+Before proposing new code, search for existing and state the search result in the spec or plan:
+
+- Components.
+- Hooks.
+- Utilities.
+- Services.
+- Types.
+- Config.
+- Tests.
+
+If an existing equivalent exists, plan to extend or refactor it instead of creating a new one.
+
 ## Big Task Workflow
 
 For tasks with 3+ meaningful steps:
