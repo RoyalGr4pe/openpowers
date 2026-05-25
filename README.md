@@ -54,7 +54,7 @@ Clone the repository and reference the plugin file from an OpenCode config:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["/absolute/path/to/openpowers/opencode-plugin.js"]
+  "plugin": ["https://github.com/RoyalGr4pe/openpowers/opencode-plugin.js"]
 }
 ```
 
