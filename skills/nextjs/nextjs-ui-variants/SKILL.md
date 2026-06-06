@@ -30,6 +30,7 @@ Before building, identify:
 - Page route or target section.
 - Primary user goal.
 - Required content and calls to action.
+- Existing reusable components that should be reused or extended.
 - Existing design system or style constraints.
 - Whether variants should be screenshot-reviewed with `browser-review`.
 
@@ -47,7 +48,9 @@ Collect all missing required inputs before building. Ask one structured question
 ## Next.js File Rules
 
 - Keep `src/app/**/page.tsx` as a server component and do not add `"use client"` to page files.
+- Do not add ordinary `.ts` files under `src/app`; only `route.ts` is allowed there.
 - Put reusable UI in `src/components`.
+- Search existing components before creating new variant components.
 - Use exactly one component per component file.
 - Put all CSS in `src/styles`.
 - Put request logic in `src/services`, never in component files.

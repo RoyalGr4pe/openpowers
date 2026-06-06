@@ -39,11 +39,13 @@ src/
 
 Do not place reusable components, hooks, utilities, service clients, or CSS modules in `src/app`.
 
+Do not add ordinary `.ts` files under `src/app`. The only allowed `.ts` file in `src/app` is `route.ts` for App Router route handlers. Move helpers, constants, types, config, validation, and service logic outside `src/app`.
+
 `page.tsx` files must not use `"use client"`. Pages should be server components that compose client components from `src/components` when interactivity is needed.
 
 `error.tsx` may use `"use client"` when Next.js requires it, but keep it route-only and move reusable UI to `src/components`.
 
-`src/components` is for UI components. A component file must contain exactly one component. Do not define two or more components in one component file.
+`src/components` is for UI components. Before creating a component, search for existing components and reuse or extend the closest fit instead of creating a parallel component. A component file must contain exactly one component. Do not define two or more components in one component file.
 
 `src/styles` is for all CSS styles, including global CSS, shared CSS, and CSS modules. Do not add style files under `src/app` or `src/components`.
 
@@ -100,6 +102,7 @@ If the choice prompt tool is unavailable, use Markdown numbered choices plus `Ty
 | Mistake | Correction |
 | --- | --- |
 | Putting reusable components in `src/app` | Move them to `src/components`. |
+| Adding helper `.ts` files in `src/app` | Keep only route files there; move helpers outside `src/app`. |
 | Adding `"use client"` to `page.tsx` | Keep the page server-side and use a child client component. |
 | Defining multiple components in one file | Split into one component per file. |
 | Fetching from a component file | Move request logic to `src/services`. |

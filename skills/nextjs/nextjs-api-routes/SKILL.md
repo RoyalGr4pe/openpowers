@@ -12,6 +12,7 @@ Use this skill for App Router route handlers in `src/app/**/route.ts`. Keep rout
 ## File And Responsibility Rules
 
 - Route handlers live in `src/app/**/route.ts`.
+- `route.ts` is the only `.ts` file allowed under `src/app`; keep helpers, validation, and services outside `src/app`.
 - Business logic and external/internal requests belong in `src/services`.
 - Shared input validation belongs in `src/security/input-validation.ts`.
 - Do not put reusable components, hooks, CSS, or utilities in route folders.
