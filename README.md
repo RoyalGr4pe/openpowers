@@ -1,18 +1,26 @@
 # OpenPowers
 
-OpenPowers is a small OpenCode plugin framework for organizing reusable skills into composable install profiles.
+OpenPowers is a small OpenCode V2 plugin framework for organizing reusable skills into composable install profiles.
 
 It is intentionally minimal. The repository provides the plugin architecture, profile layout, contributor documentation, and small base workflow skills for future skill growth.
 
 ## Profiles
 
-Profiles select which skill directories OpenCode should load. Set `OPENPOWERS_PROFILE` before starting OpenCode:
+Profiles select which skill directories OpenCode should load. Set a profile in the plugin options:
 
-```bash
-OPENPOWERS_PROFILE=nextjs opencode
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    {
+      "package": "github:RoyalGr4pe/openpowers",
+      "options": { "profile": "nextjs" }
+    }
+  ]
+}
 ```
 
-If no profile is set, OpenPowers uses `base`.
+If no profile is set, OpenPowers uses `base`. `OPENPOWERS_PROFILE` remains available as a fallback for foreground or explicitly configured service environments.
 
 Profile composition is additive:
 
@@ -31,35 +39,29 @@ Shared skills belong in the earliest applicable group. Use `skills/base` for gen
 
 ## Using Next.js Skills
 
-Start OpenCode with the Next.js profile:
+Configure the plugin with the Next.js profile:
 
-```bash
-OPENPOWERS_PROFILE=nextjs opencode
+```json
+{
+  "plugins": [
+    {
+      "package": "github:RoyalGr4pe/openpowers",
+      "options": { "profile": "nextjs" }
+    }
+  ]
+}
 ```
 
-Or export the profile once for the current shell:
+Confirm the Next.js skills are loaded:
 
 ```bash
-export OPENPOWERS_PROFILE=nextjs
-opencode
+opencode api get "/api/skill?location[directory]=$PWD"
 ```
 
-Confirm the Next.js skills are loaded with the same profile variable:
+For a Next.js monorepo that also needs Turborepo guidance, set the option to:
 
-```bash
-OPENPOWERS_PROFILE=nextjs opencode debug skill
-```
-
-If you exported the profile, this is enough:
-
-```bash
-opencode debug skill
-```
-
-For a Next.js monorepo that also needs Turborepo guidance, use:
-
-```bash
-OPENPOWERS_PROFILE=nextjs-turbo opencode
+```json
+{ "profile": "nextjs-turbo" }
 ```
 
 Current Next.js skills:
@@ -78,16 +80,16 @@ To add another Next.js skill:
 2. Add YAML frontmatter with `name: <skill-name>` and a `description` that starts with `Use when`.
 3. Write the skill instructions in that file.
 4. Update the Current Next.js skills list above.
-5. Run `node --check opencode-plugin.js` and refresh cached skills.
+5. Run `npm test` and update the installed plugin.
 
 No plugin code change is needed when adding a new `SKILL.md` under `skills/nextjs`; the `nextjs` and `nextjs-turbo` profiles scan that directory recursively.
 
 ## Using Turborepo Skills
 
-Start OpenCode with the Turborepo profile:
+Set the plugin's `profile` option to `turborepo`:
 
-```bash
-OPENPOWERS_PROFILE=turborepo opencode
+```json
+{ "profile": "turborepo" }
 ```
 
 Current Turborepo skills:
@@ -98,9 +100,9 @@ Current Turborepo skills:
 
 ## How Discovery Works
 
-OpenCode discovers skills by scanning registered skill directories for `SKILL.md` files. OpenPowers registers profile-specific directories through the plugin config hook by appending paths to `config.skills.paths`.
+OpenPowers scans the selected profile directories for `SKILL.md` files and registers them through OpenCode V2's skill transform API.
 
-The plugin preserves existing OpenCode configuration and only adds the directories required by the selected profile.
+The plugin preserves existing OpenCode skills and only adds the skills required by the selected profile.
 
 ## Install From GitHub
 
@@ -109,7 +111,7 @@ Add OpenPowers to your OpenCode config:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["openpowers@git+https://github.com/RoyalGr4pe/openpowers.git"]
+  "plugins": ["github:RoyalGr4pe/openpowers"]
 }
 ```
 
@@ -117,41 +119,38 @@ Restart OpenCode after changing plugin configuration.
 
 ## Refresh Cached Skills
 
-If OpenCode is still showing old skills after an OpenPowers update, remove the local cached plugin package and restart OpenCode:
+Ask OpenCode to update the Git plugin, then restart the service:
 
 ```bash
-rm -rf "$HOME/.cache/opencode/packages/openpowers@git+https:/github.com/RoyalGr4pe/openpowers.git"
-opencode
+opencode plugin update github:RoyalGr4pe/openpowers
+opencode service restart
 ```
 
 To confirm the skills were refreshed, run:
 
 ```bash
-opencode debug skill
+opencode api get "/api/skill?location[directory]=$PWD"
 ```
 
-For profile-specific skills, include the profile variable too:
-
-```bash
-OPENPOWERS_PROFILE=nextjs opencode debug skill
-```
+The response reflects the profile configured for that project.
 
 ## Local Development
 
-Clone the repository and reference the plugin file from an OpenCode config:
+Clone the repository, run `npm install`, and reference the plugin directory from an OpenCode config:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["/absolute/path/to/openpowers/opencode-plugin.js"]
+  "plugins": [
+    {
+      "package": "/absolute/path/to/openpowers",
+      "options": { "profile": "nextjs-turbo" }
+    }
+  ]
 }
 ```
 
-Then run OpenCode with a profile:
-
-```bash
-OPENPOWERS_PROFILE=nextjs-turbo opencode
-```
+Omit the options object to test the base profile.
 
 ## Creating Skills
 

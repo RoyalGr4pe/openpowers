@@ -1,6 +1,6 @@
 # Installation
 
-OpenPowers is installed as an OpenCode plugin and registers skill directories at startup.
+OpenPowers is an OpenCode V2 plugin that registers profile-specific skills at startup.
 
 ## GitHub Install
 
@@ -9,7 +9,7 @@ Add the plugin to `opencode.json`:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["openpowers@git+https://github.com/RoyalGr4pe/openpowers.git"]
+  "plugins": ["github:RoyalGr4pe/openpowers"]
 }
 ```
 
@@ -17,21 +17,29 @@ Restart OpenCode after changing plugin configuration.
 
 ## Local Install
 
-Use an absolute path while developing locally:
+Run `npm install`, then use an absolute path while developing locally:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["/absolute/path/to/openpowers/opencode-plugin.js"]
+  "plugins": ["/absolute/path/to/openpowers"]
 }
 ```
 
 ## Select A Profile
 
-Set `OPENPOWERS_PROFILE` before starting OpenCode:
+Use plugin options to select a profile for the project:
 
-```bash
-OPENPOWERS_PROFILE=nextjs opencode
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    {
+      "package": "github:RoyalGr4pe/openpowers",
+      "options": { "profile": "nextjs" }
+    }
+  ]
+}
 ```
 
 Available profiles:
@@ -43,19 +51,17 @@ turborepo
 nextjs-turbo
 ```
 
-Unset `OPENPOWERS_PROFILE` to use `base`.
+Omit `profile` to use `base`. `OPENPOWERS_PROFILE` remains available as a fallback for foreground or explicitly configured service environments.
 
 ## Verify Locally
 
-Run these commands from the repository root:
+Install dependencies and run these commands from the repository root:
 
 ```bash
-node --check opencode-plugin.js
-OPENPOWERS_PROFILE=nextjs node --input-type=module -e "const { default: plugin } = await import('./opencode-plugin.js'); const hooks = await plugin({}); const config = {}; hooks.config(config); console.log(config.skills.paths.map((path) => path.split('/skills/').at(-1)).join(','))"
+npm install
+npm test
+opencode plugin list
+opencode api get "/api/skill?location[directory]=$PWD"
 ```
 
-Expected output for the second command:
-
-```text
-base,nextjs
-```
+The plugin list should include `openpowers`. The skill response should include the eight base skills by default or the skills selected in the plugin options.
